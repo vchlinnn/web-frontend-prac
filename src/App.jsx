@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 // Define a React component with the name App
 /*
 const App = () => {
@@ -10,18 +12,18 @@ const App = () => {
  */
 
 const App = () => {
-  const now = new Date()
-  const a = 10
-  const b = 20
-  console.log(now, a+b)
+  const [ counter, setCounter ] = useState(0)
+
+  setTimeout(
+    () => setCounter(counter + 1),
+    1000
+  )
+
+  console.log('rendering...', counter)
 
   return (
-    <div>
-      <p>Hello world, it is {now.toString()}</p>
-      <p>
-        {a} plus {b} is {a + b}
-      </p>
-    </div>
+    <div>{counter}</div>
   )
 }
+
 export default App
